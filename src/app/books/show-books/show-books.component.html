@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Tours List</h2>
+  <button type="button" class="btn btn-primary" [routerLink]="['/admin/create']">
+    Create Tour
+  </button>
+  <form action="/search" method="post">
+    <div class="input-group mb-3">
+      <input class="form-control" name="search" placeholder="Search by name">
+      <button class="btn btn-success" type="submit">Search</button>
+    </div>
+  </form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>STT</td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let b of books">
+      <td>{{b.id}}</td>
+      <td><a routerLink="/admin/detail/{{b.id}}">{{b.title}}</a></td>
+      <td>{{b.author}}</td>
+      <td>
+        <button type="button" class="btn btn-warning" [routerLink]="['/admin/edit', b.id]">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" [routerLink]="['/admin/delete', b.id]">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

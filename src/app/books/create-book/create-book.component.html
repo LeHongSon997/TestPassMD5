@@ -1,0 +1,30 @@
+<form (ngSubmit)="create()" [formGroup]="formCreate">
+  <legend>Book information</legend>
+  <table>
+    <tr>
+      <td>#:</td>
+      <td><input type="text" class="form-control" formControlName="id" ></td>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" class="form-control" formControlName="title"></td>
+      <p *ngIf="!formCreate?.get('title')?.valid" style="color: red">* không được nhập dưới 6 ký tự</p>
+    </tr>
+    <tr>
+      <td>Author:</td>
+      <td><input type="text" class="form-control" formControlName="author"></td>
+      <p *ngIf="formCreate?.get('author')?.hasError('required')" style="color: red">* không được để trống</p>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><input type="text" class="form-control" formControlName="description"></td>
+      <p *ngIf="formCreate?.get('description')?.hasError('required')" style="color: red">* không được để trống</p>
+      <p *ngIf="formCreate?.get('description')?.hasError('minLength')" style="color: red">* không được để dưới 10 ký tự</p>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit" class="btn btn-success">Save</button></td>
+    </tr>
+  </table>
+</form>
+

@@ -1,0 +1,23 @@
+<form >
+  <h3>Are you sure</h3>
+  <legend>Books information</legend>
+  <table class="table table-dark table-striped">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Description</th>
+    </tr>
+    <tr >
+      <td>{{book.id}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.description}}</td>
+    </tr>
+    <tr>
+      <button type="button" class="btn btn-danger" (click)="delete(book.id)">Delete</button>
+    </tr>
+  </table>
+</form>
+

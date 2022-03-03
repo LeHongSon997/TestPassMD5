@@ -1,0 +1,29 @@
+<form (ngSubmit)="edit()" [formGroup]="formEdit">
+  <legend>Books information</legend>
+  <table>
+    <tr>
+      <td>Id:</td>
+      <td><input type="text" class="form-control" formControlName="id" readonly></td>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" class="form-control" formControlName="title"></td>
+      <p *ngIf="!formEdit?.get('title')?.valid" style="color: red">* không được nhập dưới 6 ký tự</p>
+    </tr>
+    <tr>
+      <td>Author:</td>
+      <td><input type="text" class="form-control" formControlName="author"></td>
+      <p *ngIf="formEdit?.get('author')?.hasError('required')" style="color: red">* không được để trống</p>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><input type="text" class="form-control" formControlName="description"></td>
+      <p *ngIf="formEdit?.get('description')?.hasError('required')" style="color: red">* không được để trống</p>
+      <p *ngIf="formEdit?.get('description')?.hasError('minLength')" style="color: red">* không được để dưới 10 ký tự</p>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit" class="btn btn-success">Save</button></td>
+    </tr>
+  </table>
+</form>
