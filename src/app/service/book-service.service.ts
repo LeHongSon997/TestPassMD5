@@ -24,12 +24,12 @@ export class BookServiceService {
     return this.http.delete<void>(`http://localhost:3000/books/${id}`);
   }
 
-  create(books: Books): Observable<any> {
-    return this.http.post('http://localhost:3000/books', books);
+  create(book: Books): Observable<any> {
+    return this.http.post('http://localhost:3000/books', book);
   }
 
-  edit(books: Books): Observable<any> {
-    return this.http.put('http://localhost:3000/books/' + books.id , books);
+  edit(book: Books): Observable<any> {
+    return this.http.put('http://localhost:3000/books/' + book.id , book);
   }
 
   find(book: Books) {
